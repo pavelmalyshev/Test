@@ -1,0 +1,8 @@
+
+<form action="{% url 'note:autor' autor.id %}" method="post">
+{% csrf_token %}
+<label for="autor{{ forloop.counter }}"><h1>{{ autor.fio }}</h1></label><br />
+<label for="autor{{ forloop.counter }}"><h4>{{ autor.date_birth }}</h4></label><br />
+<label for="autor{{ forloop.counter }}">{{ autor.bio }}</label><br />
+
+</form>

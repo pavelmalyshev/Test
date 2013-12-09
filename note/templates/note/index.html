@@ -1,0 +1,36 @@
+{% if latest_stat_list %}
+    <ul>
+        {% for stat in latest_stat_list %}
+    {# Each "stat" is a Stat model object. #}
+    <li><a href="{% url 'note:detail' stat.id %}"> {{ stat.name }} </a>
+    <a>{{ stat.date_pub }} </a><p> <a href="{% url 'note:autor' stat.autor_id %}" target="_blank" >Об авторе..</a> </li>
+    <a> {{ stat.autor_id }} </a>
+    {{ autor.name }}
+    
+    
+    
+{% endfor %}   
+    </ul>
+{% else %}
+    <p>No stats are available.</p>
+{% endif %}
+
+
+
+
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}"><=</a>
+        {% endif %}
+
+        <span class="current">
+            Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">=></a>
+        {% endif %}
+    </span>
+</div>
+</div>
