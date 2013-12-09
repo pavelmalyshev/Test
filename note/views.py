@@ -12,7 +12,7 @@ from django.template import RequestContext
 class IndexView(generic.ListView):
     template_name = 'note/index.html'
     context_object_name = 'latest_stat_list'
-    model = Stat
+    queryset = Stat.objects.select_related('autor')
     paginate_by = 3
     
 class DetailView(generic.DetailView):

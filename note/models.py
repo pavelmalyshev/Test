@@ -15,6 +15,7 @@ class Stat(models.Model):
 #    about = models.CharField(max_length=1000, null=True)
     text = models.CharField(max_length=5000)
     autor = models.ForeignKey(Autor)
+    
     def __unicode__(self):
         return self.name
     
