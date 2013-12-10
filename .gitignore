@@ -1,6 +1,7 @@
 *.sqlite3
 *.pyc
 *.pyo
+/polls
 reserv.html
 
 *.*~

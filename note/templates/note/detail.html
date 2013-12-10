@@ -1,9 +1,26 @@
 <h1>{{ Stat.name }}</h1>
 
-<form action="{% url 'note:autor' stat.id %}" method="post">
-{% csrf_token %}
+
 <label for="stat{{ forloop.counter }}"><h3>{{ stat.name }}</h3><h5> {{ stat.date_pub }} </h5></label><br>
+
+
 <label for="stat{{ forloop.counter }}">{{ stat.text }}</label><br>
-<a href="{% url 'note:autor' stat.autor_id %}" target="_blank" >Об авторе... </a><br>
+<a href="{% url 'note:autor' stat.autor.pk %}" target="_blank" >Об авторе... </a><br>
 <a href="{% url 'note:index' %}">К списку статьей</a><br>
-</form>
+<hr>
+Комментарии:
+<ul>
+{% for comment in stat.comment_set.all %}
+    {{ comment.who }}:<br>
+    {{ comment.text }}<br>
+    {{ comment.created_on }}<hr>
+{% endfor %}
+</ul>
+Оставьте свой комментарий: 
+
+
+<form method="post">{%  csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Отправить">
+</form> 
+
