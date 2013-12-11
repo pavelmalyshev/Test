@@ -8,7 +8,7 @@ from django.views import generic
 from django import forms
 from django.forms.models import modelformset_factory
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-
+   
 
 class IndexView(generic.ListView):
     template_name = 'note/index.html'

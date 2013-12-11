@@ -3,7 +3,7 @@
         {% for stat in latest_stat_list %}
     {# Each "stat" is a Stat model object. #}
     <li><a href="{% url 'note:detail' stat.id %}"> {{ stat.name }} </a>
-    <a>{{ stat.date_pub }} </a><p> Краткое содержание статьи..<p> Автор: {{ stat.autor.fio }}</li>
+    <a>{{ stat.date_pub }} </a><p> {{ stat.about }} <p> Автор: {{ stat.autor.fio }}</li>
      
      <hr>
         
